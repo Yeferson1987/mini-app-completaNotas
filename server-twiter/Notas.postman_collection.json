@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "42017533-1cd2-443a-9051-4ffbb805db85",
+		"name": "Notas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34332649"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3001/posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3001/posts/0480351f-e6e6-4342-83a9-e04c9e6b48db",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/posts/0480351f-e6e6-4342-83a9-e04c9e6b48db",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"posts",
+						"0480351f-e6e6-4342-83a9-e04c9e6b48db"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3001/posts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"prueba\",\r\n    \"content\": \"nueva\"    \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3001/posts/0480351f-e6e6-4342-83a9-e04c9e6b48db",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"title\": \"fuera\",\r\n     \"content\": \"ahora\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/posts/0480351f-e6e6-4342-83a9-e04c9e6b48db",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"posts",
+						"0480351f-e6e6-4342-83a9-e04c9e6b48db"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3001/posts/0480351f-e6e6-4342-83a9-e04c9e6b48db",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/posts/0480351f-e6e6-4342-83a9-e04c9e6b48db",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"posts",
+						"0480351f-e6e6-4342-83a9-e04c9e6b48db"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

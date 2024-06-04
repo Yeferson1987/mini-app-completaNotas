@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import PostForm from '../components/PostForm';
 
-const EditPost = () => {
+const EditPost = ({ editing = true }) => {
     return (
-        <div>
+        <div className="edit-post">
             <h1>Editar Post</h1>
-            <PostForm editing={true} />
+            <PostForm editing={editing} />
         </div>
     );
 };

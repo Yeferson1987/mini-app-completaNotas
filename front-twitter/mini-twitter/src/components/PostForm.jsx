@@ -18,33 +18,34 @@ const PostForm = ({ editing }) => {
         }
     }, [editing, id]);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const post = { title, content };
 
         if (editing) {
-            await updatePost(id, post);
+            updatePost(id, post).then(() => {
+                navigate('/');
+            });
         } else {
-            await createPost(post);
+            createPost(post).then(() => {
+                navigate('/');
+            });
         }
-        navigate('/'); // Redirección a la página principal después de guardar/actualizar
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Titulo</label>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
-                </div>
-                <div>
-                    <label>Contenido</label>
-                    <textarea value={content} onChange={(e) => setContent(e.target.value)} required></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
-            <button onClick={() => navigate('/')}>Volver al Inicio</button>
-        </div>
+        <form onSubmit={handleSubmit} className="post-form">
+            <div>
+                <label>Título</label>
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+            </div>
+            <div>
+                <label>Contenido</label>
+                <textarea value={content} onChange={(e) => setContent(e.target.value)} required></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+            <button type="button" onClick={() => navigate('/')}>Volver</button>
+        </form>
     );
 };
 

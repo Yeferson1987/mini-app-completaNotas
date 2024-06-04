@@ -1,4 +1,4 @@
-import getPool from '../db/getPool.js';
+import getPool from '../../db/getPool.js';
 
 export const deletePost = async (req, res, next) => {
     try {

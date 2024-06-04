@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import getPool from '../db/getPool.js';
+import getPool from '../../db/getPool.js';
 
 export const createPost = async (req, res, next) => {
     try {

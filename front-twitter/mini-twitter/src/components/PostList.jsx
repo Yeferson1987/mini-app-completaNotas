@@ -1,34 +1,47 @@
 import { useEffect, useState } from 'react';
 import { getPosts, deletePost } from '../api';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        getPosts().then((response) => {
-            setPosts(response.data);
-        });
+        const fetchPosts = async () => {
+            try {
+                const response = await getPosts();
+                setPosts(response.data);
+            } catch (err) {
+                console.error('Error fetching posts:', err);
+            }
+        };
+
+        fetchPosts();
     }, []);
 
-    const handleDelete = (id) => {
-        deletePost(id).then(() => {
+    const handleDelete = async (id) => {
+        try {
+            await deletePost(id);
             setPosts(posts.filter(post => post.id !== id));
-        });
+        } catch (err) {
+            console.error('Error deleting post:', err);
+        }
+    };
+
+    const handleEdit = (id) => {
+        navigate(`/edit/${id}`);
     };
 
     return (
-        <div>
-            <h1>Posts</h1>
-            <Link to="/new">Crear nuevo post</Link>
-            <ul>
-                {posts.map((post) => (
-                    <li key={post.id}>
-                        <Link to={`/posts/${post.id}`}>{post.title}</Link>
-                        <button onClick={() => handleDelete(post.id)}>Eliminar</button>
-                    </li>
-                ))}
-            </ul>
+        <div className="post-list">
+            {posts.map((post) => (
+                <div key={post.id} className="post-item">
+                    <h2>{post.title}</h2>
+                    <p>{post.content}</p>
+                    <button onClick={() => handleEdit(post.id)}>Editar</button>
+                    <button onClick={() => handleDelete(post.id)}>Borrar</button>
+                </div>
+            ))}
         </div>
     );
 };
